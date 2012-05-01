@@ -222,6 +222,7 @@ module Prawn
 
         def process_soft_hyphens(string)
           if string.length > 0 && normalized_soft_hyphen
+            string.force_encoding(normalized_soft_hyphen.encoding)
             string[0..-2].gsub(normalized_soft_hyphen, "") + string[-1..-1]
           else
             string
